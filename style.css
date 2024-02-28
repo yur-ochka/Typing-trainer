@@ -1,0 +1,45 @@
+body{
+    color: azure;
+    background-color: #242B33;
+    margin: 0;
+}
+
+.container{
+    border: 1px solid black;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.settings{
+    width: 40%;
+    height: 5vh;
+    border: 1px solid black;
+    display: flex;
+    margin-top: 3vh;
+}
+
+.info{
+    width: 50%;
+    height: 5vh;
+    border: 1px solid black;
+    display: flex;
+    margin-top: 3vh;
+}
+
+.textArea{
+    width: 60%;
+    height: 30vh;
+    border: 1px solid black;
+    display: flex;
+    margin-top: 3vh;
+}
+
+.keyboard{
+    width: 45%;
+    height: 40vh;
+    border: 1px solid black;
+    display: flex;
+    margin-top: 3vh;
+}
