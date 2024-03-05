@@ -37,9 +37,58 @@ body{
 }
 
 .keyboard{
-    width: 45%;
-    height: 40vh;
-    border: 1px solid black;
+    width: 50%;
+    height: 32vh;
     display: flex;
+    flex-direction: column;
     margin-top: 3vh;
+}
+
+.keyboard-row{
+    height: 7.2vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+
+.KeyQ, .KeyW, .KeyE, .KeyR, .KeyT, .KeyY, .KeyU, .KeyI, .KeyO, .KeyP, .BracketLeft, .BracketRight,
+.KeyA, .KeyS, .KeyD, .KeyF, .KeyG, .KeyH, .KeyJ, .KeyK, .KeyL, .Semicolon, .Quote, .Backslash,
+.KeyZ, .KeyX, .KeyC, .KeyV, .KeyB, .KeyN, .KeyM, .Comma, .Period, .Slash
+{
+    width: 6.66%;
+    height: 4vh;
+    text-align: center;
+    padding-top: 3vh;
+    background:#383f47;
+    border-radius: 7%;
+    margin: 1px;
+}
+
+.Tab, .Backspace, .CapsLock, .Enter
+{
+    width: 10.04%;
+    height: 7vh;
+    background:#383f47;
+    border-radius: 7%;
+    margin: 1px;
+}
+
+.ShiftLeft, .ShiftRight
+{
+    width: 16.7%;
+    height: 7vh;
+    background:#383f47;
+    border-radius: 7%;
+    margin: 1px;
+}
+
+.Space
+{
+    width: 50%;
+    height: 7vh;
+    margin-left: 25%;
+    background:#383f47;
+    border-radius: 7%;
 }
