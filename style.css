@@ -31,9 +31,29 @@ body{
 .textArea{
     width: 60%;
     height: 30vh;
-    border: 1px solid black;
     display: flex;
     margin-top: 3vh;
+}
+
+.textAreaItem
+{
+    width: 100%;
+    height: 30vh;
+    resize: none;
+    background:#383f47;
+    color: azure;
+    
+}
+
+.crutchPlaceholder{
+    position: absolute;
+    resize: none;
+    height: 30vh;
+    width: 59.5%;
+    pointer-events: none;
+    background:transparent;
+    color:rgba(240, 255, 255, 0.5);
+    border: 1px solid transparent;
 }
 
 .keyboard{
