@@ -26,6 +26,15 @@ body{
     border: 1px solid black;
     display: flex;
     margin-top: 3vh;
+    background:#383f47;
+}
+
+.mistakes, .time, .charsCount, .speed
+{
+    width: 25%;
+    height: 5vh;
+    border: 1px solid black;
+    
 }
 
 .textArea{
