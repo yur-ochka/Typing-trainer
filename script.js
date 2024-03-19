@@ -16,9 +16,13 @@ let interval = null;
 
 const mainKeys = ["Tab", "Backspace", "CapsLock", "Enter", "ShiftLeft", "ShiftRight"];
 
+let colorOnClick = `#1e2125`;
+let colorOnKeyup = `#383f47`;
+
 document.addEventListener('keydown', function(event) {
     if (document.querySelector("#typingArea") == document.activeElement)
     {
+        themeSwitch.disabled = true;
         if (firstCharPrinted == false) {
             firstCharPrinted = true;
             interval = setInterval(updateInfo, 1000);      
@@ -26,7 +30,7 @@ document.addEventListener('keydown', function(event) {
         var keyCode = event.code;
         console.log('Key pressed:', keyCode);
         const key = document.querySelector(`.${keyCode}`);
-        key.style.background = `#1e2125`;
+        key.style.background = colorOnClick;
         const textHintArea = document.querySelector(`#hintArea`);
         if (event.key === 'Backspace') {
             event.preventDefault();
@@ -53,7 +57,7 @@ document.addEventListener('keyup', function(event) {
     var keyCode = event.code;
     console.log('Key released:', keyCode);
     const key = document.querySelector(`.${keyCode}`);
-    key.style.background = `#383f47`;
+    key.style.background = colorOnKeyup;
 });
 
 let updateInfo = () =>
@@ -78,3 +82,31 @@ let countSpeed = () =>
 function roundToTwoDecimalPlaces(number) {
     return Math.round(number * 100) / 100;
 }
+
+const themeSwitch = document.querySelector(".switch__input");
+var r = document.querySelector(':root');
+const switchCircle = document.querySelector(".circle");
+themeSwitch.addEventListener("click", () =>{
+    if (themeSwitch.checked == true)
+    {
+        colorOnClick = '#3B2207';
+        colorOnKeyup = '#FFC999';
+        r.style.setProperty('--BGcolor', '#FFE2C7');
+        r.style.setProperty('--itemsColor', '#FFC999');
+        r.style.setProperty('--textColor', '#6F3C0B');
+        r.style.setProperty('--placeholderColor', 'rgba(111, 60, 11, 0.6)');
+        switchCircle.style.transform = 'translate(130%, 0)';
+        switchCircle.style.content = 'url(sun.png)';
+
+    }
+    else {
+        colorOnClick = `#1e2125`;
+        colorOnKeyup = `#383f47`;
+        r.style.setProperty('--BGcolor', '#242B33');
+        r.style.setProperty('--itemsColor', '#383f47');
+        r.style.setProperty('--textColor', 'azure');
+        r.style.setProperty('--placeholderColor', 'rgba(240, 255, 255, 0.5)');
+        switchCircle.style.transform = 'translate(0, 0)';
+        switchCircle.style.content = 'url(moon.png)';
+    }
+});
