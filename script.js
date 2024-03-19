@@ -89,7 +89,7 @@ const switchCircle = document.querySelector(".circle");
 themeSwitch.addEventListener("click", () =>{
     if (themeSwitch.checked == true)
     {
-        colorOnClick = '#3B2207';
+        colorOnClick = '#FFA04D';
         colorOnKeyup = '#FFC999';
         r.style.setProperty('--BGcolor', '#FFE2C7');
         r.style.setProperty('--itemsColor', '#FFC999');

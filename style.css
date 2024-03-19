@@ -9,6 +9,8 @@ body{
     color: var(--textColor);
     background-color: var(--BGcolor);
     margin: 0;
+    font-family: "B612", sans-serif;
+    font-size: 1.8vh;
 }
 
 .container{
@@ -50,6 +52,7 @@ body{
     width: 4rem;
     height: 2rem;
     margin-left: 0;
+    cursor: pointer;
 }
 
 .switch__slider{
@@ -71,17 +74,22 @@ body{
 }
 
 .info{
-    width: 50%;
+    width: 45%;
     height: 5vh;
     display: flex;
     margin-top: 3vh;
-    background:var(--itemsColor);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .mistakes, .time, .charsCount, .speed
 {
-    width: 25%;
-    height: 5vh;    
+    background:var(--itemsColor);
+    width: 24%;
+    height: 3.5vh;    
+    text-align: center;
+    padding-top: 1.5vh;
 }
 
 .textArea{
@@ -97,7 +105,9 @@ body{
     height: 30vh;
     resize: none;
     background:var(--itemsColor);
-    color: var(--textColor)
+    color: var(--textColor);
+    font-family: "B612", sans-serif;
+    font-size: 1.7vh;
 }
 
 .crutchPlaceholder{
@@ -109,6 +119,8 @@ body{
     background: transparent;
     color: var(--placeholderColor);
     border: 1px solid transparent;
+    font-family: "B612", sans-serif;
+    font-size: 1.7vh;
 }
 
 .keyboard{
@@ -132,9 +144,9 @@ body{
 .KeyZ, .KeyX, .KeyC, .KeyV, .KeyB, .KeyN, .KeyM, .Comma, .Period, .Slash
 {
     width: 6.66%;
-    height: 4vh;
+    height: 4.5vh;
+    padding-top: 2.5vh;
     text-align: center;
-    padding-top: 3vh;
     background:var(--itemsColor);
     border-radius: 7%;
     margin: 1px;
