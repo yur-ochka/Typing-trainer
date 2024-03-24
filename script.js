@@ -75,7 +75,7 @@ let updateInfo = () =>
 
 let countSpeed = () =>
 {
-    typingSpeed = roundToTwoDecimalPlaces(countPrintedChars / expiredTime);
+    typingSpeed = roundToTwoDecimalPlaces(countPrintedChars / (expiredTime / 60));
     speed.innerHTML = `Chars per minute: ${typingSpeed}`;
 }
 
@@ -97,7 +97,6 @@ themeSwitch.addEventListener("click", () =>{
         r.style.setProperty('--placeholderColor', 'rgba(111, 60, 11, 0.6)');
         switchCircle.style.transform = 'translate(130%, 0)';
         switchCircle.style.content = 'url(sun.png)';
-
     }
     else {
         colorOnClick = `#1e2125`;
