@@ -179,3 +179,10 @@ body{
     border-radius: 7%;
 }
 
+h1{
+    color: var(--textColor);
+    font-family: "B612", sans-serif;
+    font-size:8vh;
+    padding-top: 10vh;
+}
+
