@@ -1,12 +1,13 @@
 window.addEventListener("load", onPageLoad);
 document.addEventListener("DOMContentLoaded", onPageLoad);
+let container = document.querySelector('.container');
 
 let goToMenu = () =>{
     console.log("ssdsd");
     window.location.href = 'menu.html?colorChecked=' + themeSwitch.checked;
 };
 
-var r = document.querySelector(':root');
+let r = document.querySelector(':root');
 let charNumber = 0;
 
 let firstCharPrinted = false;
@@ -26,6 +27,8 @@ time.innerHTML = `Remaining time: ${remainingTime}s`;
 let interval = null;
 
 const mainKeys = ["Tab", "Backspace", "CapsLock", "Enter", "ShiftLeft", "ShiftRight"];
+
+container.appendChild(generateKeyboard());
 
 document.addEventListener('keydown', function(event) {
     if (document.querySelector("#typingArea") == document.activeElement)
@@ -93,6 +96,9 @@ function roundToTwoDecimalPlaces(number) {
 const themeSwitch = document.querySelector(".switch__input");
 const switchCircle = document.querySelector(".circle");
 themeSwitch.addEventListener("click", () =>{
+    let keyboard = document.querySelector('.keyboard');
+    container.removeChild(keyboard);
+    container.appendChild(generateKeyboard());
     if (themeSwitch.checked == true)
     {
         r.style.setProperty('--colorOnClick', '#FFA04D');
@@ -151,4 +157,42 @@ function onPageLoad() {
         switchCircle.style.transform = 'translate(0, 0)';
         switchCircle.style.content = 'url(moon.png)';
     }
+}
+
+function generateKeyboard() {
+    let keyboardDiv = document.createElement('div');
+    keyboardDiv.classList.add('keyboard');
+
+    let keyRows = [
+        ['Tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'BracketLeft', 'BracketRight', 'Backspace'],
+        ['CapsLock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Semicolon', 'Quote', 'Backslash', 'Enter'],
+        ['ShiftLeft', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'Comma', 'Period', 'Slash', 'ShiftRight'],
+        ['Space']
+    ];
+    let keyRowsText = [
+        ['Tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[', ']', 'Backspace'],
+        ['CapsLock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', "'", '\\', 'Enter'],
+        ['ShiftLeft', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '/', 'ShiftRight'],
+        ['']
+    ];
+    keyRows.forEach(function(rowKeys) {
+        let rowDiv = document.createElement('div');
+        rowDiv.classList.add('keyboard-row');
+        rowKeys.forEach(function(keyLabel) {
+            let keyDiv = document.createElement('div');
+            if(mainKeys.includes(keyLabel) || keyLabel != keyRowsText[keyRows.indexOf(rowKeys)][rowKeys.indexOf(keyLabel)] || keyLabel == 'Space')
+            {            
+                console.log(keyLabel);
+                keyDiv.classList.add(keyLabel.replace(/\s+/g, ''));
+            }
+            else 
+            {
+                keyDiv.classList.add('Key' + keyLabel.replace(/\s+/g, ''));
+            }
+            keyDiv.textContent = keyRowsText[keyRows.indexOf(rowKeys)][rowKeys.indexOf(keyLabel)];
+            rowDiv.appendChild(keyDiv);
+        });
+        keyboardDiv.appendChild(rowDiv);
+    });
+    return keyboardDiv;
 }
