@@ -1,8 +1,8 @@
 window.addEventListener("load", onPageLoad);
 document.addEventListener("DOMContentLoaded", onPageLoad);
-let container = document.querySelector('.container');
+const container = document.querySelector('.container');
 
-let goToMenu = () =>{
+const goToMenu = () =>{
     console.log("ssdsd");
     window.location.href = 'menu.html?colorChecked=' + themeSwitch.checked;
 };
@@ -29,7 +29,7 @@ let interval = null;
 const mainKeys = ["Tab", "Backspace", "CapsLock", "Enter", "ShiftLeft", "ShiftRight"];
 
 container.appendChild(generateKeyboard());
-
+const textHintArea = document.querySelector(`#hintArea`);
 document.addEventListener('keydown', function(event) {
     if (document.querySelector("#typingArea") == document.activeElement)
     {
@@ -37,11 +37,10 @@ document.addEventListener('keydown', function(event) {
             firstCharPrinted = true;
             interval = setInterval(updateInfo, 1000);      
         }
-        var keyCode = event.code;
+        const keyCode = event.code;
         console.log('Key pressed:', keyCode);
         const key = document.querySelector(`.${keyCode}`);
         key.style.background = r.style.getPropertyValue('--colorOnClick');
-        const textHintArea = document.querySelector(`#hintArea`);
         if (event.key === 'Backspace') {
             event.preventDefault();
         }
@@ -64,18 +63,18 @@ document.addEventListener('keydown', function(event) {
 });
 
 document.addEventListener('keyup', function(event) {
-    var keyCode = event.code;
+    const keyCode = event.code;
     console.log('Key released:', keyCode);
     const key = document.querySelector(`.${keyCode}`);
     key.style.background = r.style.getPropertyValue('--colorOnKeyup');
 });
 
-let updateInfo = () =>
+const updateInfo = () =>
 {
     remainingTime--;
     expiredTime++;
     time.innerHTML = `Remaining time: ${remainingTime}s`;
-    if (remainingTime == 0) 
+    if (remainingTime == 0 || textHintArea.value.length == charNumber) 
     {
         clearInterval(interval);
         document.querySelector(`#typingArea`).disabled = true;
@@ -83,7 +82,7 @@ let updateInfo = () =>
     }
 }
 
-let countSpeed = () =>
+const countSpeed = () =>
 {
     typingSpeed = roundToTwoDecimalPlaces(countPrintedChars / (expiredTime / 60));
     speed.innerHTML = `Chars per minute: ${typingSpeed}`;
@@ -96,7 +95,7 @@ function roundToTwoDecimalPlaces(number) {
 const themeSwitch = document.querySelector(".switch__input");
 const switchCircle = document.querySelector(".circle");
 themeSwitch.addEventListener("click", () =>{
-    let keyboard = document.querySelector('.keyboard');
+    const keyboard = document.querySelector('.keyboard');
     container.removeChild(keyboard);
     container.appendChild(generateKeyboard());
     if (themeSwitch.checked == true)
@@ -172,7 +171,7 @@ function generateKeyboard() {
     let keyRowsText = [
         ['Tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[', ']', 'Backspace'],
         ['CapsLock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', "'", '\\', 'Enter'],
-        ['ShiftLeft', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '/', 'ShiftRight'],
+        ['Shift', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '/', 'Shift'],
         ['']
     ];
     keyRows.forEach(function(rowKeys) {
