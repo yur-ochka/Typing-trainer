@@ -5,14 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Typing trainer</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=B612:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <div class="settings"></div>
-        <div class="info"></div>
-        <div class="textArea"></div>
-        <div class="keyboard"></div>
+        <div class="settings">
+            <div class="returnMenu" onclick="goToMenu()"></div>
+            <div class="colorMode">
+                <div class="switch">
+                    <span class="switch__slider">
+                        <div class="circle"></div>
+                    </span>
+                    <input class="switch__input" type="checkbox">
+            </div>   
+            </div>
+        </div>
+        <div class="info">
+            <div class="mistakes">Mistakes: 0</div>
+            <div class="time">Remaining time: 120s</div>
+            <div class="charsCount">Printed chars: 0</div>
+            <div class="speed">Chars per minute: 0</div> 
+        </div>
+        <div class="textArea">
+            <textarea class="textAreaItem" name="" id="typingArea" cols="30" rows="10"></textarea>
+            <textarea class="crutchPlaceholder" name="" id="hintArea" cols="30" rows="10">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed iste, magni velit placeat mollitia optio doloribus quos quam maxime, ipsam veniam rem non voluptas facere. Asperiores numquam, dolor vitae incidunt aspernatur animi ipsum facilis nostrum perferendis fuga cupiditate, itaque deleniti?</textarea>
+        </div>
     </div>  
+    <script src="utilities.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

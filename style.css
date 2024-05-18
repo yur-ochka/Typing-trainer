@@ -1,11 +1,21 @@
+:root {
+    --BGcolor: #242B33;
+    --itemsColor: #383f47;
+    --textColor: azure;
+    --colorOnClick: #1e2125;
+    --colorOnKeyup: #383f47;
+    --placeholderColor: rgba(240, 255, 255, 0.5);
+}
+
 body{
-    color: azure;
-    background-color: #242B33;
+    color: var(--textColor);
+    background-color: var(--BGcolor);
     margin: 0;
+    font-family: "B612", sans-serif;
+    font-size: 1.8vh;
 }
 
 .container{
-    border: 1px solid black;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -15,31 +25,219 @@ body{
 .settings{
     width: 40%;
     height: 5vh;
-    border: 1px solid black;
     display: flex;
     margin-top: 3vh;
 }
 
+.returnMenu{
+    width: 6%;
+    content:url(house.png);
+    cursor: pointer;
+}
+
+.colorMode
+{
+    width: 94%;
+}
+
+.switch{
+    margin-top: 0.5vh;
+    float: right;
+    width: 4rem;
+    height: 2rem;
+    display: flex;
+
+}
+
+.switch__input{
+    position: absolute;
+    opacity: 0;
+    width: 4rem;
+    height: 2rem;
+    margin-left: 0;
+    cursor: pointer;
+}
+
+.switch__slider{
+    width: 100%;
+    background: var(--placeholderColor);
+    border-radius: 1rem;
+}
+
+.circle{
+    margin-left: 0.1rem;
+    margin-top: 0.1rem;
+    width: 40%;
+    height: 1.8rem;
+    background: var(--BGcolor);
+    border-radius: 1rem;
+    transform: translate(0, 0);
+    transition: all 0.5s;
+    content:url(moon.png);
+}
+
 .info{
-    width: 50%;
+    width: 45%;
     height: 5vh;
-    border: 1px solid black;
     display: flex;
     margin-top: 3vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.mistakes, .time, .charsCount, .speed
+{
+    background:var(--itemsColor);
+    width: 24%;
+    height: 3.5vh;    
+    text-align: center;
+    padding-top: 1.5vh;
 }
 
 .textArea{
     width: 60%;
     height: 30vh;
-    border: 1px solid black;
     display: flex;
     margin-top: 3vh;
 }
 
+.textAreaItem
+{
+    width: 100%;
+    height: 30vh;
+    resize: none;
+    background:var(--itemsColor);
+    color: var(--textColor);
+    font-family: "B612", sans-serif;
+    font-size: 1.7vh;
+}
+
+.crutchPlaceholder{
+    position: absolute;
+    resize: none;
+    height: 30vh;
+    width: 59.5%;
+    pointer-events: none;
+    background: transparent;
+    color: var(--placeholderColor);
+    border: 1px solid transparent;
+    font-family: "B612", sans-serif;
+    font-size: 1.7vh;
+}
+
 .keyboard{
-    width: 45%;
-    height: 40vh;
-    border: 1px solid black;
+    width: 50%;
+    height: 32vh;
     display: flex;
+    flex-direction: column;
     margin-top: 3vh;
+}
+
+.keyboard-row{
+    height: 7.2vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.KeyQ, .KeyW, .KeyE, .KeyR, .KeyT, .KeyY, .KeyU, .KeyI, .KeyO, .KeyP, .BracketLeft, .BracketRight,
+.KeyA, .KeyS, .KeyD, .KeyF, .KeyG, .KeyH, .KeyJ, .KeyK, .KeyL, .Semicolon, .Quote, .Backslash,
+.KeyZ, .KeyX, .KeyC, .KeyV, .KeyB, .KeyN, .KeyM, .Comma, .Period, .Slash
+{
+    width: 6.66%;
+    height: 4.5vh;
+    padding-top: 2.5vh;
+    text-align: center;
+    background:var(--itemsColor);
+    border-radius: 7%;
+    margin: 1px;
+}
+
+.Tab, .Backspace, .CapsLock, .Enter
+{
+    width: 10.04%;
+    height: 7vh;
+    background:var(--itemsColor);
+    border-radius: 7%;
+    margin: 1px;
+}
+
+.ShiftLeft, .ShiftRight
+{
+    width: 16.7%;
+    height: 7vh;
+    background:var(--itemsColor);
+    border-radius: 7%;
+    margin: 1px;
+}
+
+.Space
+{
+    width: 50%;
+    height: 7vh;
+    margin-left: 25%;
+    background:var(--itemsColor);
+    border-radius: 7%;
+}
+
+
+/* Styles for menu page */
+h1{
+    color: var(--textColor);
+    font-family: "B612", sans-serif;
+    font-size:8vh;
+    padding-top: 10vh;
+}
+
+.goToTyping{
+    width: 30%;
+    height: 25vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 2.5vh;
+
+}
+
+.settingTimeDiv{
+    width: 100%;
+    height: 3vh;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.chooseTime{
+    width: 50%;
+}
+
+.chosenTime{
+    font-size: 3vh;
+}
+
+.goToMainDiv{
+    background: var(--itemsColor);
+    width: 80%;
+    height: 8vh;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+.goToMainDiv:hover {
+    cursor: pointer;
+    background: var(--placeholderColor);
+
+  }
+.goToMain{
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--textColor);
+    font-size: 5vh;
 }
